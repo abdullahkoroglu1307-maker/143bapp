@@ -116,10 +116,19 @@ a{color:inherit;text-decoration:none}
 .lw-f b{color:var(--sun)}
 
 .quote{margin-top:44px;text-align:center;font:800 1.3rem 'Baloo 2';padding:22px;border-radius:26px;background:var(--ink);color:var(--sun)}
-footer{margin-top:22px;text-align:center;font-weight:700;opacity:.85;font-size:.9rem}
-footer .ig{display:inline-block;background:var(--white);border:2px solid var(--ink);border-radius:999px;padding:6px 14px;font-weight:800;font-size:.88rem;box-shadow:0 3px 0 var(--ink);transition:transform .15s,background .15s}
-footer .ig:hover{transform:translateY(-2px);background:var(--sun)}
-footer .sig{margin-top:10px;font-weight:800;letter-spacing:.3px}
+footer{margin-top:22px;text-align:center;font-weight:700;opacity:1;font-size:.9rem}
+footer .dc{position:relative;display:inline-flex;align-items:center;gap:14px;overflow:hidden;background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);border:3px solid var(--ink);border-radius:22px;padding:16px 30px;color:#fff;font:800 1.35rem 'Baloo 2',sans-serif;box-shadow:0 6px 0 var(--ink);transition:transform .2s,box-shadow .2s}
+footer .dc small{display:block;font:700 .82rem Nunito,system-ui,sans-serif;opacity:.92;letter-spacing:.3px}
+footer .dc .dc-e{font-size:2.1rem;filter:drop-shadow(0 2px 3px rgba(0,0,0,.3))}
+footer .dc::after{content:'';position:absolute;top:0;left:-70%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);animation:dcshine 3.4s infinite}
+@keyframes dcshine{to{left:140%}}
+footer .dc:hover{transform:translateY(-4px) rotate(-1deg);box-shadow:0 10px 0 var(--ink)}
+footer .sig{margin-top:14px;font-weight:800;letter-spacing:.3px;color:var(--white)}
+footer .sig em{font-style:normal;color:var(--sun)}
+.strip a.dc-link{background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);color:#fff;border-color:var(--ink);box-shadow:0 2px 0 var(--ink)}
+.c.dc-card{background:linear-gradient(135deg,#8134af,#dd2a7b);color:#fff}
+.c.dc-card small{color:rgba(255,255,255,.9)}
+@media(prefers-reduced-motion:reduce){footer .dc::after{display:none}}
 
 @media(max-width:760px){
  .grid{grid-template-columns:repeat(2,1fr)}
@@ -146,6 +155,7 @@ footer .sig{margin-top:10px;font-weight:800;letter-spacing:.3px}
     <a href="https://ogmmateryal.eba.gov.tr" target="_blank" rel="noopener">📘 EBA</a>
     <a href="https://www.youtube.com" target="_blank" rel="noopener">▶️ YouTube</a>
     <a href="https://www.google.com" target="_blank" rel="noopener">🔍 Google</a>
+    <a class="dc-link" href="https://www.instagram.com/devenscode/" target="_blank" rel="noopener">📷 @devenscode</a>
   </nav>
 
   <header class="hero">
@@ -194,6 +204,7 @@ footer .sig{margin-top:10px;font-weight:800;letter-spacing:.3px}
       <a class="c b-mint w2" href="https://www.143bapp.com.tr/dökümanlar" target="_blank" rel="noopener"><span class="e">📂</span><div><h3>Dökümanlar</h3><small>Notlar ve dosyalar</small></div></a>
       <a class="c b-blue w3" href="https://www.143bapp.com.tr/galeri" target="_blank" rel="noopener"><span class="e">📸</span><div><h3>Galeri</h3><small>Anılarımız</small></div></a>
       <a class="c b-white w3" href="https://www.143bapp.com.tr/reklam-izleme-köşesi" target="_blank" rel="noopener"><span class="e">🎬</span><div><h3>Reklam İzleme Köşesi</h3><small>İzle, düşün, tartış</small></div></a>
+      <a class="c dc-card w3" href="https://www.instagram.com/devenscode/" target="_blank" rel="noopener"><span class="e">🤵</span><div><h3>Devenscode</h3><small>Bu sitenin gönüllü geliştiricisi — tavsiye & öneri için yazın</small></div></a>
     </div>
   </section>
 
@@ -204,8 +215,11 @@ footer .sig{margin-top:10px;font-weight:800;letter-spacing:.3px}
 
   <div class="quote" id="quote"></div>
   <footer>
-    <a class="ig" href="https://www.instagram.com/devenscode/" target="_blank" rel="noopener">📷 @devenscode</a>
-    <div class="sig">Abdullah Enes Köroğlu</div>
+    <a class="dc" href="https://www.instagram.com/devenscode/" target="_blank" rel="noopener">
+      <span class="dc-e">📷</span>
+      <span>DEVENSCODE<small>gönüllü geliştirici · @devenscode</small></span>
+    </a>
+    <div class="sig">Geliştirici: <em>Abdullah Enes Köroğlu</em> · Devenscode</div>
   </footer>
 </div>
 
