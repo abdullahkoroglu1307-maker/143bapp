@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10-B Ders Programı | Ankara Atatürk Lisesi</title>
+<style>
+  :root{
+    --bg:#f1f5f9;
+    --card:#ffffff;
+    --ink:#0f172a;
+    --ink-soft:#475569;
+    --line:#e2e8f0;
+    --brand:#1d4ed8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+  }
+  header{
+    background:linear-gradient(135deg,#1e3a8a,#1d4ed8);
+    color:#fff;
+    padding:32px 16px 26px;
+    text-align:center;
+  }
+  header h1{font-size:clamp(20px,4vw,32px);letter-spacing:1px}
+  header .sub{margin-top:6px;font-size:14px;opacity:.9}
+  header .badges{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  header .badges span{
+    background:rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.35);
+    padding:5px 14px;border-radius:99px;font-size:13px;
+  }
+  main{flex:1;width:100%;max-width:1150px;margin:0 auto;padding:24px 14px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 1px 3px rgba(15,23,42,.06)}
+  .card + .card{margin-top:20px}
+  .card h2{font-size:18px;margin-bottom:14px;color:var(--brand)}
+  .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  table{border-collapse:collapse;width:100%;min-width:760px}
+  th,td{
+    border:1px solid var(--line);
+    padding:10px 8px;
+    text-align:center;
+    font-size:13px;
+    vertical-align:middle;
+  }
+  thead th{background:#eef2ff;color:#1e3a8a;font-size:12px;line-height:1.35}
+  thead th small{display:block;font-weight:500;color:#64748b;font-size:11px}
+  tbody th{background:#f8fafc;color:var(--ink);white-space:nowrap;font-size:13px;min-width:110px}
+  td .lesson{
+    display:inline-flex;flex-direction:column;gap:2px;align-items:center;
+    padding:8px 6px;border-radius:8px;font-weight:700;min-width:88px;
+  }
+  td .lesson small{font-weight:600;font-size:11px;opacity:.85}
+  .empty{color:#cbd5e1;font-weight:600}
+  legend{padding:0 8px;font-size:13px;font-weight:600;color:var(--ink-soft)}
+  .teachers{width:100%;border-collapse:collapse}
+  .teachers th{background:#eef2ff;color:#1e3a8a;text-align:left}
+  .teachers td{text-align:left}
+  .teachers td:first-child{font-weight:700;white-space:nowrap;color:var(--brand)}
+  .note{margin-top:20px;text-align:center;color:var(--ink-soft);font-size:13px;line-height:1.7}
+  .note b{color:var(--ink)}
+
+  footer{
+    margin-top:26px;
+    background:#0f172a;
+    color:#e2e8f0;
+    padding:34px 16px;
+    text-align:center;
+  }
+  .big-link{
+    display:inline-block;
+    color:#fff;
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    text-decoration:none;
+    font-size:clamp(20px,4.5vw,34px);
+    font-weight:800;
+    letter-spacing:1px;
+    padding:18px 46px;
+    border-radius:99px;
+    box-shadow:0 8px 24px rgba(37,99,235,.45);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .big-link:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(37,99,235,.6)}
+  .footer-row{
+    margin-top:22px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .mini-link{
+    color:#93c5fd;
+    text-decoration:none;
+    font-size:12px;
+    border:1px solid #334155;
+    padding:6px 14px;
+    border-radius:99px;
+    transition:background .15s ease,color .15s ease;
+  }
+  .mini-link:hover{background:#1e293b;color:#fff}
+  .footer-title{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#64748b;margin-bottom:14px}
+  @media (max-width:600px){
+    td .lesson{min-width:70px;font-size:12px}
+    thead th{font-size:11px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>ÇANKAYA ANKARA ATATÜRK LİSESİ</h1>
+  <div class="sub">Ders Programı — 2026 / 2027 Eğitim Öğretim Yılı</div>
+  <div class="badges">
+    <span>Sınıf: 10-B</span>
+    <span>Toplam Ders Saati: 40</span>
+    <span>Sınıf Öğretmeni: DENİZ YÜKSEL TAŞ</span>
+  </div>
+</header>
+
+<main>
+  <section class="card">
+    <h2>📅 Haftalık Ders Programı</h2>
+    <div class="table-wrap">
+      <table id="program"></table>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>👩‍🏫 Dersler ve Öğretmenler</h2>
+    <div class="table-wrap">
+      <table class="teachers">
+        <thead>
+          <tr><th>S.No</th><th>Ders</th><th>Dersin Adı</th><th>Hs</th><th>Yer</th><th>Dersin Öğretmeni</th></tr>
+        </thead>
+        <tbody id="teachers"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <p class="note">
+    Yukarıdaki dersler <b>23/11/2026</b> tarihinde verilmiştir. Bilgilerinizi rica ederim.<br>
+    <b>ADİL YAMAN</b> — OKUL MÜDÜRÜ
+  </p>
+</main>
+
+<footer>
+  <div class="footer-title">— Tasarım &amp; Kod —</div>
+  <a class="big-link" href="https://www.devencodes.com/" target="_blank" rel="noopener">DEVENSCODE</a>
+  <div class="footer-row">
+    <a class="mini-link" href="https://github.com/abdullahkoroglu1307-maker/143bapp" target="_blank" rel="noopener">GitHub</a>
+    <span style="font-size:11px;color:#64748b">© 2026 143bapp</span>
+    <a class="mini-link" href="https://abdullahkoroglu1307-maker.github.io/143bapp/" target="_blank" rel="noopener">Site</a>
+  </div>
+</footer>
+
+<script>
+const PERIODS_STANDART = ["08:00-08:40","08:50-09:30","09:40-10:20","10:30-11:10","11:30-12:10","13:00-13:40","13:50-14:30","14:40-15:20"];
+const PERIODS_CUMA = ["08:00-08:40","08:50-09:30","09:40-10:20","10:30-11:10","11:30-12:10","12:15-12:55","13:50-14:30","14:35-15:15"];
+
+const lessons = {
+  "EDB":  {adi:"TÜRK DİLİ VE EDEBİYATI"},
+  "ADM":  {adi:"ADABI MUAŞERET"},
+  "10KİM":{adi:"KİMYA"},
+  "GÖR":  {adi:"GÖRSEL SANATLAR-MÜZİK"},
+  "10COĞ":{adi:"COĞRAFYA"},
+  "FEL":  {adi:"FELSEFE"},
+  "ALM":  {adi:"ALMANCA"},
+  "10MAT":{adi:"MATEMATİK"},
+  "BED 1":{adi:"BEDEN EĞİTİMİ VE SPOR"},
+  "İNG1": {adi:"İNGİLİZCE"},
+  "10FİZ":{adi:"FİZİK"},
+  "TDB":  {adi:"TÜRK DİLİ"},
+  "REH":  {adi:"REHBERLİK"},
+  "10BİY":{adi:"BİYOLOJİ"},
+  "10TAR":{adi:"TARİH"},
+  "DİN":  {adi:"DİN KÜLTÜRÜ AHLAK BİLGİSİ"}
+};
+
+const colors = {
+  "EDB":["#ffe4e6","#e11d48"],
+  "ADM":["#fef9c3","#a16207"],
+  "10KİM":["#e0f2fe","#0369a1"],
+  "GÖR":["#fae8ff","#a21caf"],
+  "10COĞ":["#dcfce7","#15803d"],
+  "FEL":["#e2e8f0","#334155"],
+  "ALM":["#ffedd5","#c2410c"],
+  "10MAT":["#dbeafe","#1d4ed8"],
+  "BED 1":["#ecfeff","#0e7490"],
+  "İNG1":["#f3e8ff","#7e22ce"],
+  "10FİZ":["#e0e7ff","#4338ca"],
+  "TDB":["#ffe4e6","#be123c"],
+  "REH":["#e7e5e4","#57534e"],
+  "10BİY":["#d1fae5","#047857"],
+  "10TAR":["#fef3c7","#b45309"],
+  "DİN":["#ede9fe","#6d28d9"]
+};
+
+const program = [
+  {gun:"Pazartesi", saat:PERIODS_STANDART, ders:[
+    ["EDB","F.SNN"],["ADM","A.YMN"],["10KİM","Ş.AKT"],["10KİM","Ş.AKT"],
+    ["GÖR","E.MSR GÖSA"],["GÖR","E.MSR GÖSA"],["10COĞ","T.ALT"],["10COĞ","T.ALT"]
+  ]},
+  {gun:"Salı", saat:PERIODS_STANDART, ders:[
+    ["EDB","F.SNN"],["EDB","F.SNN"],["FEL","T.KSĞ"],["FEL","T.KSĞ"],
+    ["ALM","M.BLT"],["ALM","M.BLT"],["10MAT","D.YKS"],["10MAT","D.YKS"]
+  ]},
+  {gun:"Çarşamba", saat:PERIODS_STANDART, ders:[
+    ["EDB","F.SNN"],["EDB","F.SNN"],["BED 1","S.KYA SPO1"],["BED 1","S.KYA SPO1"],
+    ["İNG1","B.GRS"],["İNG1","B.GRS"],["10MAT","D.YKS"],["10MAT","D.YKS"]
+  ]},
+  {gun:"Perşembe", saat:PERIODS_STANDART, ders:[
+    ["10FİZ","Y.ÖNN"],["10FİZ","Y.ÖNN"],["ALM","M.BLT"],["ALM","M.BLT"],
+    ["İNG1","B.GRS"],["İNG1","B.GRS"],["TDB","I.GKT"],["REH","D.YKS"]
+  ]},
+  {gun:"Cuma", saat:PERIODS_CUMA, ders:[
+    ["10BİY","C.ULS"],["10BİY","C.ULS"],["10TAR","H.ÖZT"],["10TAR","H.ÖZT"],
+    ["DİN","I.GKT"],["DİN","I.GKT"],["10MAT","D.YKS"],["10MAT","D.YKS"]
+  ]}
+];
+
+const table = document.getElementById("program");
+
+let thead = "<tr><th>Ders / Gün</th>";
+for (let i = 1; i <= 8; i++) {
+  thead += "<th>(" + i + ")<small>" + program[0].saat[i-1] + "</small></th>";
+}
+thead += "</tr>";
+table.innerHTML = "<thead>" + thead + "</thead>";
+
+let rows = "";
+for (const gun of program) {
+  rows += "<tr><th>" + gun.gun + "<br><small style='font-weight:500;color:#64748b'>" + gun.saat.join(" · ") + "</small></th>";
+  for (const [kod, ret] of gun.ders) {
+    const c = colors[kod] || ["#f1f5f9","#334155"];
+    rows += "<td><span class='lesson' style='background:" + c[0] + ";color:" + c[1] + "'>" + kod + "<small>" + ret + "</small></span></td>";
+  }
+  rows += "</tr>";
+}
+table.innerHTML += "<tbody>" + rows + "</tbody>";
+
+const teacherRows = [
+  ["1","10BİY","BİYOLOJİ","2","","CİHAN ULUSU"],
+  ["2","10COĞ","COĞRAFYA","2","","TANER ALTUN"],
+  ["3","10FİZ","FİZİK","2","","YİĞİTCAN ÖNEN"],
+  ["4","10KİM","KİMYA","2","","ŞEREF AKTAŞ"],
+  ["5","10MAT","MATEMATİK","6","","DENİZ YÜKSEL TAŞ"],
+  ["6","10TAR","TARİH","2","","HİMMET HAKAN ÖZATEŞ"],
+  ["7","ADM","ADABI MUAŞERET","1","","ADİL YAMAN"],
+  ["8","ALM","ALMANCA","4","","MELİHA BULUT"],
+  ["9","BED 1","BEDEN EĞİTİMİ VE SPOR","2","SPOR SALONU 2","SEZEN KAYA"],
+  ["10","DİN","DİN KÜLTÜRÜ AHLAK BİLGİSİ","2","","İŞİL GÖKTAŞ"],
+  ["11","EDB","TÜRK DİLİ VE EDEBİYATI","5","","FATMA SİNAN ASLAN"],
+  ["12","FEL","FELSEFE","2","","TİMUR KÖSEOĞLU"],
+  ["13","GÖR","GÖRSEL SANATLAR-MÜZİK","2","GÖRSEL SANATLAR 1","EBRU MISIRLI, İFFET GÖKÇEN SERATLI"],
+  ["14","İNG1","İNGİLİZCE","4","","BİRNUR GÜRSES"],
+  ["15","REH","REHBERLİK","1","","DENİZ YÜKSEL TAŞ"]
+];
+document.getElementById("teachers").innerHTML = teacherRows
+  .map(r => "<tr><td>" + r.join("</td><td>") + "</td></tr>")
+  .join("");
+</script>
+
+</body>
+</html>
